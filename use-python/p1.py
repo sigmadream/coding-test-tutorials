@@ -25,7 +25,7 @@ from p0 import logging_time
 
 
 @logging_time
-def isPalindrome1(s: str) -> bool:
+def is_palindrome1(s: str) -> bool:
     strs = []
     for char in s:
         if char.isalnum():
@@ -38,12 +38,12 @@ def isPalindrome1(s: str) -> bool:
     return True
 
 
-print(isPalindrome1("A man, a plan, a canal: Panama"))
-print(isPalindrome1("race a car"))
+print(is_palindrome1("A man, a plan, a canal: Panama"))
+print(is_palindrome1("race a car"))
 
 
 @logging_time
-def isPalindrome2(s: str) -> bool:
+def is_palindrome2(s: str) -> bool:
 
     strs: Deque = collections.deque()
 
@@ -58,16 +58,16 @@ def isPalindrome2(s: str) -> bool:
     return True
 
 
-print(isPalindrome2("A man, a plan, a canal: Panama"))
-print(isPalindrome2("race a car"))
+print(is_palindrome2("A man, a plan, a canal: Panama"))
+print(is_palindrome2("race a car"))
 
 
 @logging_time
-def isPalindrome3(s: str) -> bool:
+def is_palindrome3(s: str) -> bool:
     s = s.lower()
     s = re.sub("[^a-z0-9]", "", s)
     return s == s[::-1]
 
 
-print(isPalindrome3("A man, a plan, a canal: Panama"))
-print(isPalindrome3("race a car"))
+print(is_palindrome3("A man, a plan, a canal: Panama"))
+print(is_palindrome3("race a car"))
