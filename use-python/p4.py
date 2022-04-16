@@ -1,16 +1,16 @@
 import collections
 import re
-from typing import List
 
+from p0 import logging_time
 
-paragraph = (
+input_paragraph = (
     "Bob hit a baU, bob, boB, a, a a a a a the hit BALL flew far after tt was hit."
 )
-banned = ["hit"]
-# 데이터 정리
+input_banned = ["hit"]
 
 
-def mostCommonWord(paragraph: List[str], banned: List[str]) -> str:
+@logging_time
+def most_common_word(paragraph, banned):
     words = [
         word
         for word in re.sub(r"[^\w]", " ", paragraph).lower().split()
@@ -21,4 +21,4 @@ def mostCommonWord(paragraph: List[str], banned: List[str]) -> str:
     return counts.most_common(1)[0][0]
 
 
-print(mostCommonWord(paragraph, banned))
+print(most_common_word(input_paragraph, input_banned))

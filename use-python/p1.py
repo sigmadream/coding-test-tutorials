@@ -1,31 +1,13 @@
-"""
-Q: 주어진 문자열이 팰린드롬인지 확인하라.
-C1: 대소문자를 구분하지 않음
-C2: 영문자와 숫자만 구분
-
-입력:
-- "A man, a plan, a canal: Panama"
-
-출력
-- true
-
-입력:
-- "race a car"
-
-출력:
-- false
-
-"""
-
-
 import collections
 import re
-from typing import Deque
 from p0 import logging_time
+
+INPUT_DATA1 = "A man, a plan, a canal: Panama"
+INPUT_DATA2 = "race a car"
 
 
 @logging_time
-def is_palindrome1(s: str) -> bool:
+def is_palindrome1(s):
     strs = []
     for char in s:
         if char.isalnum():
@@ -38,13 +20,12 @@ def is_palindrome1(s: str) -> bool:
     return True
 
 
-print(is_palindrome1("A man, a plan, a canal: Panama"))
-print(is_palindrome1("race a car"))
+print(is_palindrome1(INPUT_DATA1))
+print(is_palindrome1(INPUT_DATA2))
 
 
 @logging_time
 def is_palindrome2(s: str) -> bool:
-
     strs: Deque = collections.deque()
 
     for char in s:
@@ -58,8 +39,8 @@ def is_palindrome2(s: str) -> bool:
     return True
 
 
-print(is_palindrome2("A man, a plan, a canal: Panama"))
-print(is_palindrome2("race a car"))
+print(is_palindrome2(INPUT_DATA1))
+print(is_palindrome2(INPUT_DATA2))
 
 
 @logging_time
@@ -69,5 +50,5 @@ def is_palindrome3(s: str) -> bool:
     return s == s[::-1]
 
 
-print(is_palindrome3("A man, a plan, a canal: Panama"))
-print(is_palindrome3("race a car"))
+print(is_palindrome3(INPUT_DATA1))
+print(is_palindrome3(INPUT_DATA2))
